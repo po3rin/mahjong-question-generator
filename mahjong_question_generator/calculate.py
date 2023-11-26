@@ -141,8 +141,8 @@ def calculate(calculator: HandCalculator, hand: list) -> any:
 
     is_haitei = False
     is_houtei = False
-    config = HandConfig(is_tsumo=is_tsumo, is_riichi=is_riichi, is_haitei=is_haitei, is_houtei=is_houtei, player_wind=player_wind, round_wind=round_wind, options=OptionalRules(has_open_tanyao=True, has_aka_dora=True, kiriage=True, kazoe_limit=HandConfig.KAZOE_SANBAIMAN))
-        
+    config = HandConfig(is_tsumo=is_tsumo, is_riichi=is_riichi, is_haitei=is_haitei, is_houtei=is_houtei, player_wind=player_wind, round_wind=round_wind, options=OptionalRules(has_open_tanyao=True, kiriage=True, kazoe_limit=HandConfig.KAZOE_SANBAIMAN))
+
     #計算
     hand_value = calculator.estimate_hand_value(tiles, win_tile, melds, dora_indicators, config)
 
@@ -150,7 +150,7 @@ def calculate(calculator: HandCalculator, hand: list) -> any:
     if str(hand_value) == 'no_yaku':
         is_haitei = is_tsumo and not is_riichi
         is_houtei = not is_tsumo and not is_riichi
-        config = HandConfig(is_tsumo=is_tsumo, is_riichi=is_riichi, is_haitei=is_haitei, is_houtei=is_houtei, player_wind=player_wind, round_wind=round_wind, options=OptionalRules(has_open_tanyao=True, has_aka_dora=False, kiriage=True, kazoe_limit=HandConfig.KAZOE_SANBAIMAN))
+        config = HandConfig(is_tsumo=is_tsumo, is_riichi=is_riichi, is_haitei=is_haitei, is_houtei=is_houtei, player_wind=player_wind, round_wind=round_wind, options=OptionalRules(has_open_tanyao=True, kiriage=True, kazoe_limit=HandConfig.KAZOE_SANBAIMAN))
         hand_value = calculator.estimate_hand_value(tiles, win_tile, melds, dora_indicators, config)
 
     return {
