@@ -1,0 +1,2 @@
+class InvalidTehaiError(Exception):
+    pass
