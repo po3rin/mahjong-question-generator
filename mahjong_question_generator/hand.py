@@ -2,12 +2,12 @@ import random
 from mahjong_question_generator.validation import hand_validation
 from mahjong_question_generator.exceptions import InvalidTehaiError
 
-WIN_PATTERN = ['run', 'triple', 'kan', 'pon', 'chi']
-WIN_PATTERN_WEIGHTS = [4,1,1,1,1]
+TILE_PATTERN = ['run', 'triple', 'chi', 'pon', 'kan']
+DEFAULT_TILE_PATTERN_WEIGHTS = [4,1,1,1,1]
 
 
-def hand_candidates() -> dict:
-    mentsu_list = random.choices(WIN_PATTERN, weights=WIN_PATTERN_WEIGHTS, k=4)
+def hand_candidates(tile_pattern_weights: list[int] = DEFAULT_TILE_PATTERN_WEIGHTS) -> dict:
+    mentsu_list = random.choices(TILE_PATTERN, weights=tile_pattern_weights, k=4)
 
     hand = []
 
@@ -66,10 +66,10 @@ def hand_candidates() -> dict:
     return hand
 
 
-def generate_hands(n: int) -> list:
+def generate_hands(n: int, tile_pattern_weights: list[int] = DEFAULT_TILE_PATTERN_WEIGHTS) -> list:
     valid_list = []
     while len(valid_list) < n:
-        tehai = hand_candidates()
+        tehai = hand_candidates(tile_pattern_weights)
         try: 
             hand_validation(tehai)
         except InvalidTehaiError as e:

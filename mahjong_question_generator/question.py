@@ -113,7 +113,7 @@ def enable_richi(hand: list) -> bool:
     return True
 
 
-def calculate(calculator: HandCalculator, hand: list) -> any:
+def hand_to_question(calculator: HandCalculator, hand: list) -> any:
     # リーチ
     is_riichi = False
     if enable_richi(hand):

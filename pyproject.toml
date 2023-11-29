@@ -16,12 +16,14 @@ wheel = "^0.41.3"
 pybind11 = "^2.11.1"
 setuptools = "^69.0.2"
 cython = "^3.0.5"
-cmajiang = {git = "https://github.com/po3rin/cmajiang", rev = "add-poetry"}
+numpy = "^1.26.2"
 pandas = "^2.1.3"
 
 
 [tool.poetry.group.dev.dependencies]
+matplotlib = "^3.8.2"
 ipykernel = "^6.26.0"
+ipywidgets = "^8.1.1"
 
 [build-system]
 requires = [
